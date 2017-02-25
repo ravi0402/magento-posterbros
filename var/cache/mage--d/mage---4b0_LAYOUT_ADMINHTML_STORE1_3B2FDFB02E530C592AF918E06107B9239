@@ -1,0 +1,76 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1456176986;s:6:"expire";d:9999999999;s:4:"tags";s:68:"4b0_ADMINHTML_INTEGRATION_GRID,4b0_LAYOUT_GENERAL_CACHE_TAG,4b0_MAGE";}
+<body>
+   <referenceBlock name="integration.grid.container">
+      <block class="Magento\Integration\Block\Adminhtml\Integration\Grid" name="integration.grid" as="grid">
+         <arguments>
+            <argument name="id" xsi:type="string">integrationGrid</argument>
+            <argument name="dataSource" xsi:type="object">Magento\Integration\Model\ResourceModel\Integration\Collection</argument>
+            <argument name="use_ajax" xsi:type="string">1</argument>
+            <argument name="default_sort" xsi:type="string">integration_id</argument>
+            <argument name="default_dir" xsi:type="string">asc</argument>
+            <argument name="grid_url" path="*/*/grid" xsi:type="url">
+               <param name="_current">1</param>
+            </argument>
+         </arguments>
+         <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="integration.grid.columnSet">
+            <arguments>
+               <argument name="rowUrl" xsi:type="array">
+                  <item name="path" xsi:type="string"/>
+               </argument>
+               <argument name="empty_text" translate="true" xsi:type="string">No Integrations Found</argument>
+            </arguments>
+            <block class="Magento\Backend\Block\Widget\Grid\Column" as="name">
+               <arguments>
+                  <argument name="header" translate="true" xsi:type="string">Name</argument>
+                  <argument name="type" xsi:type="string">text</argument>
+                  <argument name="index" xsi:type="string">name</argument>
+                  <argument name="id" xsi:type="string">name</argument>
+                  <argument name="renderer" xsi:type="string">Magento\Integration\Block\Adminhtml\Widget\Grid\Column\Renderer\Name</argument>
+                  <argument name="escape" xsi:type="string">1</argument>
+               </arguments>
+            </block>
+            <block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
+               <arguments>
+                  <argument name="header" translate="true" xsi:type="string">Status</argument>
+                  <argument name="type" xsi:type="string">options</argument>
+                  <argument name="options" model="Magento\Integration\Model\Integration\Source\Status" xsi:type="options"/>
+                  <argument name="index" xsi:type="string">status</argument>
+                  <argument name="id" xsi:type="string">status</argument>
+               </arguments>
+            </block>
+            <block class="Magento\Backend\Block\Widget\Grid\Column" as="activate">
+               <arguments>
+                  <argument name="renderer" xsi:type="string">Magento\Integration\Block\Adminhtml\Widget\Grid\Column\Renderer\Link\Activate</argument>
+                  <argument name="index" xsi:type="string">activate</argument>
+                  <argument name="id" xsi:type="string">activate</argument>
+                  <argument name="sortable" xsi:type="string">0</argument>
+                  <argument name="filter" xsi:type="string">0</argument>
+               </arguments>
+            </block>
+            <block class="Magento\Backend\Block\Widget\Grid\Column" as="edit">
+               <arguments>
+                  <argument name="renderer" xsi:type="string">Magento\Integration\Block\Adminhtml\Widget\Grid\Column\Renderer\Button\Edit</argument>
+                  <argument name="index" xsi:type="string">edit</argument>
+                  <argument name="id" xsi:type="string">edit</argument>
+                  <argument name="sortable" xsi:type="string">0</argument>
+                  <argument name="filter" xsi:type="string">0</argument>
+               </arguments>
+            </block>
+            <block class="Magento\Backend\Block\Widget\Grid\Column" as="delete">
+               <arguments>
+                  <argument name="renderer" xsi:type="string">Magento\Integration\Block\Adminhtml\Widget\Grid\Column\Renderer\Button\Delete</argument>
+                  <argument name="class" xsi:type="string">action delete</argument>
+                  <argument name="index" xsi:type="string">delete</argument>
+                  <argument name="id" xsi:type="string">delete</argument>
+                  <argument name="sortable" xsi:type="string">0</argument>
+                  <argument name="filter" xsi:type="string">0</argument>
+               </arguments>
+            </block>
+         </block>
+      </block>
+   </referenceBlock>
+</body>
+<update handle="adminhtml_integration_grid_block"/>
+<container name="root">
+   <block class="Magento\Integration\Block\Adminhtml\Integration" name="integration.grid.container" template="Magento_Backend::widget/grid/container/empty.phtml"/>
+</container>

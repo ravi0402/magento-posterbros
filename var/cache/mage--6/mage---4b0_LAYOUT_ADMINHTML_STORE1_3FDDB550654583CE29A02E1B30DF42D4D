@@ -1,0 +1,15 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1456176277;s:6:"expire";d:9999999999;s:4:"tags";s:81:"4b0_ADMINHTML_INTEGRATION_PERMISSIONSDIALOG,4b0_LAYOUT_GENERAL_CACHE_TAG,4b0_MAGE";}
+<container name="root">
+   <block class="Magento\Backend\Block\Template" name="integration.activate.permissions" template="Magento_Integration::integration/activate/permissions.phtml">
+      <block class="Magento\Integration\Block\Adminhtml\Integration\Activate\Permissions\Tabs" name="integration.activate.permissions.tabs" as="tabs"/>
+   </block>
+</container>
+<body>
+   <referenceBlock name="integration.activate.permissions.tabs">
+      <block class="Magento\Integration\Block\Adminhtml\Integration\Activate\Permissions\Tab\Webapi" name="integration_activate_permissions_tabs_webapi" template="Magento_Integration::integration/activate/permissions/tab/webapi.phtml"/>
+      <action method="addTab">
+         <argument name="name" xsi:type="string">integration_activate_permissions_tabs_webapi</argument>
+         <argument name="block" xsi:type="string">integration_activate_permissions_tabs_webapi</argument>
+      </action>
+   </referenceBlock>
+</body>
